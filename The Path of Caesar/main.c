@@ -91,7 +91,7 @@ int main()
 	Monster.armor = 10;
 	Monster.attack_damage = 12;
 	Monster.money = 30;
-	Monster.experience = 50; //511500000 //51150
+	Monster.experience = 50; //511500000
 	Monster.alive = true;
 
 	pots.health.prices[0]=5;
@@ -173,7 +173,7 @@ int main()
 
 void combat(struct Character *Caesar , struct Monster Monster)
 {
-    int a = 0,rn,turn=1,percentage;
+    int  a = 0,rn,turn=1,percentage;
 	double get_damage[2];
 	char ch;
 	srand(time(NULL));
@@ -517,6 +517,7 @@ void combat(struct Character *Caesar , struct Monster Monster)
 void shop(struct Character *Caesar , struct Items pots)
 {
     char ch;
+    int i,number;
 
     printf("Welcome to the shop\nP: Potions\n\n");
     ch = getch();
@@ -527,27 +528,55 @@ void shop(struct Character *Caesar , struct Items pots)
             printf("S: Small Health Potion : %d gold\nM: Medium Health Potion : %d gold\nL: Large Health Potion : %d gold\nU: Super Health Potion : %d gold\n\n",pots.health.prices[0],pots.health.prices[1],pots.health.prices[2],pots.health.prices[3]);
             ch= getch();
             if( (ch == 's' || ch == 'S') && Caesar->money>=pots.health.prices[0]){
-                Caesar->health_potion[0]++;
-                Caesar->money -= pots.health.prices[0];
+                printf("How many do you want?\n");
+                scanf("%d",&number);
+                for(i=0;i<number;i++){
+                    Caesar->health_potion[0]++;
+                    Caesar->money -= pots.health.prices[0];
+                    if(Caesar->money<pots.health.prices[0]){
+                        break;
+                    }
+                }
                 printf("You have %d small health potion\n",Caesar->health_potion[0]);
                 printf("You have %d gold.\n\n",Caesar->money);
             }
             else if( (ch == 'm' || ch == 'M') && Caesar->money>=pots.health.prices[1]){
-                Caesar->health_potion[1]++;
-                Caesar->money -= pots.health.prices[1];
+                printf("How many do you want?\n");
+                scanf("%d",&number);
+                for(i=0;i<number;i++){
+                    Caesar->health_potion[1]++;
+                    Caesar->money -= pots.health.prices[1];
+                    if(Caesar->money<pots.health.prices[1]){
+                        break;
+                    }
+                }
                 printf("You have %d medium health potion\n",Caesar->health_potion[1]);
                 printf("You have %d gold.\n\n",Caesar->money);
             }
             else if( (ch == 'l' || ch == 'L') && Caesar->money>=pots.health.prices[2]){
-                Caesar->health_potion[2]++;
-                Caesar->money -= pots.health.prices[2];
+                printf("How many do you want?\n");
+                scanf("%d",&number);
+                for(i=0;i<number;i++){
+                    Caesar->health_potion[2]++;
+                    Caesar->money -= pots.health.prices[2];
+                    if(Caesar->money<pots.health.prices[2]){
+                        break;
+                    }
+                }
                 printf("You have %d large health potion\n",Caesar->health_potion[2]);
                 printf("You have %d gold.\n\n",Caesar->money);
             }
             else if( (ch == 'u' || ch == 'U') && Caesar->money>=pots.health.prices[3]){
-                Caesar->health_potion[3]++;
-                Caesar->money -= pots.health.prices[3];
-                printf("You have %d large health potion\n",Caesar->health_potion[3]);
+                printf("How many do you want?\n");
+                scanf("%d",&number);
+                for(i=0;i<number;i++){
+                    Caesar->health_potion[3]++;
+                    Caesar->money -= pots.health.prices[3];
+                    if(Caesar->money<pots.health.prices[3]){
+                        break;
+                    }
+                }
+                printf("You have %d super health potion\n",Caesar->health_potion[3]);
                 printf("You have %d gold.\n\n",Caesar->money);
             }
             else{
@@ -559,27 +588,55 @@ void shop(struct Character *Caesar , struct Items pots)
                 printf("S: Small Mana Potion : %d gold\nM: Medium Mana Potion : %d gold\nL: Large Mana Potion : %d gold\nU: Super Mana Potion : %d gold\n\n",pots.mana.prices[0],pots.mana.prices[1],pots.mana.prices[2],pots.mana.prices[3]);
             ch= getch();
             if( (ch == 's' || ch == 'S') && Caesar->money>=pots.mana.prices[0]){
-                Caesar->mana_potion[0]++;
-                Caesar->money -= pots.mana.prices[0];
+                printf("How many do you want?\n");
+                scanf("%d",&number);
+                for(i=0;i<number;i++){
+                    Caesar->mana_potion[0]++;
+                    Caesar->money -= pots.mana.prices[0];
+                    if(Caesar->money<pots.mana.prices[0]){
+                        break;
+                    }
+                }
                 printf("You have %d small mana potion\n",Caesar->mana_potion[0]);
                 printf("You have %d gold.\n\n",Caesar->money);
             }
             else if( (ch == 'm' || ch == 'M') && Caesar->money>=pots.mana.prices[1]){
-                Caesar->mana_potion[1]++;
-                Caesar->money -= pots.mana.prices[1];
+                printf("How many do you want?\n");
+                scanf("%d",&number);
+                for(i=0;i<number;i++){
+                    Caesar->mana_potion[1]++;
+                    Caesar->money -= pots.mana.prices[1];
+                    if(Caesar->money<pots.mana.prices[1]){
+                        break;
+                    }
+                }
                 printf("You have %d medium mana potion\n",Caesar->mana_potion[1]);
                 printf("You have %d gold.\n\n",Caesar->money);
             }
             else if( (ch == 'l' || ch == 'L') && Caesar->money>=pots.mana.prices[2]){
-                Caesar->mana_potion[2]++;
-                Caesar->money -= pots.mana.prices[2];
+                printf("How many do you want?\n");
+                scanf("%d",&number);
+                for(i=0;i<number;i++){
+                    Caesar->mana_potion[2]++;
+                    Caesar->money -= pots.mana.prices[2];
+                    if(Caesar->money<pots.mana.prices[2]){
+                        break;
+                    }
+                }
                 printf("You have %d large mana potion\n",Caesar->mana_potion[2]);
                 printf("You have %d gold.\n\n",Caesar->money);
             }
             else if( (ch == 'u' || ch == 'U') && Caesar->money>=pots.mana.prices[3]){
-                Caesar->mana_potion[3]++;
-                Caesar->money -= pots.mana.prices[3];
-                printf("You have %d large mana potion\n",Caesar->mana_potion[3]);
+                printf("How many do you want?\n");
+                scanf("%d",&number);
+                for(i=0;i<number;i++){
+                    Caesar->mana_potion[3]++;
+                    Caesar->money -= pots.mana.prices[3];
+                    if(Caesar->money<pots.mana.prices[3]){
+                        break;
+                    }
+                }
+                printf("You have %d super mana potion\n",Caesar->mana_potion[3]);
                 printf("You have %d gold.\n\n",Caesar->money);
             }
             else{
@@ -638,7 +695,7 @@ void save(struct Character *Caesar)
 
     FILE *fptr;
 
-    fptr = fopen("C:\\Users\\G510\\Desktop\\Codes\\The Path of Caesar\\save\\first_save.bin" , "wb+");
+    fptr = fopen("first_save.bin" , "wb+");
 
     if(fptr == NULL){
         printf("Save Error!");
@@ -680,7 +737,7 @@ void load(struct Character *Caesar)
 
     FILE *fptr;
 
-    fptr = fopen("C:\\Users\\G510\\Desktop\\Codes\\The Path of Caesar\\save\\first_save.bin" , "rb+");
+    fptr = fopen("first_save.bin" , "rb+");
 
     if(fptr == NULL){
         printf("Load Error!");
@@ -732,10 +789,7 @@ void experience(struct Character *Caesar)
 {
     int i;
 
-    /*int Levels[10] = {50 , 100 , 200 , 400 , 800 , 1600 , 3200 , 6400 , 12800 , 25600};
-    int Plus[6] = {0 , 1 , 2 , 3 , 4 , 5};*/
-
-    while(Caesar->experience >= (Levels[Caesar->level-1]+Levels[Caesar->level-1]*Plus[Caesar->plus]) && Caesar->plus<=5){
+    while(Caesar->experience >= Levels[Caesar->level-1]+Levels[Caesar->level-1]*Plus[Caesar->plus] && Caesar->plus<=5){
     if(Caesar->experience >= Levels[Caesar->level-1]+Levels[Caesar->level-1]*Plus[Caesar->plus]){
         Caesar->experience -= Levels[Caesar->level-1]+Levels[Caesar->level-1]*Plus[Caesar->plus];
         Caesar->level++;
@@ -743,7 +797,8 @@ void experience(struct Character *Caesar)
         Caesar->maxHP+=30;
         Caesar->mana+=15;
         Caesar->maxmana+=15;
-        Caesar->attack_damage+=2;
+        Caesar->attack_damage+=4;
+        Caesar->armor+=2;
         if(Caesar->level>10 && Caesar->plus<5){
             Caesar->level=1;
             Caesar->plus++;
