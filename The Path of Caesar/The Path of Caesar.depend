@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1504017142 source:c:\users\g510\desktop\codes\the path of caesar\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<Windows.h>
+	<math.h>
+	<stdbool.h>
+
+1536004486 source:c:\users\alp eren sukas\desktop\codes\the path of caesar\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<Windows.h>
+	<math.h>
+	<stdbool.h>
+	<time.h>
+
